@@ -6,6 +6,8 @@ import 'package:daddy_joke_bloc_reference/network/daddy_joke_data_source.dart';
 class HomeRepository {
   DaddyJokeDataSource remoteSource;
 
+  HomeRepository(this.remoteSource);
+
   Stream<DaddyJoke> getRandomJoke() {
     return remoteSource
         .getRandomJoke()

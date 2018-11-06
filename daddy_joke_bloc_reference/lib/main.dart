@@ -1,3 +1,6 @@
+import 'package:daddy_joke_bloc_reference/base/block_provider.dart';
+import 'package:daddy_joke_bloc_reference/home/home.dart';
+import 'package:daddy_joke_bloc_reference/home/home_bloc.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -19,7 +22,10 @@ class MyApp extends StatelessWidget {
         // counter didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      home: BlocProvider<HomeBloc>(
+        bloc: HomeBloc(),
+        child: Home(),
+      )// new MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
