@@ -60,6 +60,8 @@ class Home extends StatelessWidget {
   Widget handleState(Resource<DaddyJoke> resource) {
     if (resource.status == Status.LOADING) {
       return CircularProgressIndicator();
+    } else if (resource.status == Status.ERROR) {
+      return Text(resource.message);
     } else {
       return Text(
         resource.hasData

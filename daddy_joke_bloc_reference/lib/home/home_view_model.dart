@@ -15,7 +15,8 @@ class HomeViewModel {
 
   getRandomJoke() {
     homeBloc.setValue(Resource.loading());
-    homeRepository.getRandomJoke()
-        .listen((daddyJoke) => homeBloc.setValue(Resource.success(daddyJoke)));
+    homeRepository.getRandomJoke().listen(
+        (daddyJoke) => homeBloc.setValue(daddyJoke),
+        onError: (error) => homeBloc.setValue(Resource.error("Unkown error")));
   }
 }
