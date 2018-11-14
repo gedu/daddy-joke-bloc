@@ -5,6 +5,7 @@ import 'package:daddy_joke_bloc_reference/home/home_view_model.dart';
 import 'package:daddy_joke_bloc_reference/model/Resource.dart';
 import 'package:daddy_joke_bloc_reference/model/daddy_joke.dart';
 import 'package:daddy_joke_bloc_reference/network/daddy_joke_data_source.dart';
+import 'package:daddy_joke_bloc_reference/network/services/joke_service.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -12,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeBloc = BlocProvider.of<HomeBloc>(context);
     final homeViewModel =
-        HomeViewModel(homeBloc, HomeRepository(DaddyJokeDataSource()));
+        HomeViewModel(homeBloc, HomeRepository(DaddyJokeDataSource(JokeService())));
     return Scaffold(
       appBar: AppBar(
         title: Text("Joke"),
